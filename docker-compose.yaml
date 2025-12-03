@@ -15,7 +15,7 @@ services:
       - backend_public:/usr/src/app/public
       - backend_private:/usr/src/app/private
     env_file:
-      - .env-app
+      - .env
     restart: always
     depends_on:
       - postgres
@@ -28,7 +28,7 @@ services:
     volumes:
       - backend_public:/var/www/backend-public
     env_file:
-      - .env-app
+      - .env
     restart: always
     depends_on:
       - backend
@@ -73,7 +73,7 @@ services:
     image: ghcr.io/ticketz-oss/ticketz-sidekick:latest
     profiles: ["do-not-start"]
     env_file:
-      - .env-app
+      - .env
     restart: unless-stopped
     volumes:
       - backend_public:/backend-public
